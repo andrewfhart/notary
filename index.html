@@ -13,13 +13,25 @@
     <script src="bower_components/react/JSXTransformer.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/showdown/compressed/showdown.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="bower_components/backbone/backbone.js"></script>
+    <script src="bower_components/backbone.localstorage/backbone.localStorage.js"></script>
 
     
   </head>
   <body>
     <div id="content" class="container"></div>
 
+    <!-- Backbone Models / Collections -->
+    <script type="text/jsx" src="scripts/note.js"></script>
+    <script type="text/jsx" src="scripts/notes.js"></script>
+
     <!-- JSX Scripts -->
+    <script type="text/jsx" src="scripts/noteEditor.jsx"></script>
+    <script type="text/jsx" src="scripts/noteList.jsx"></script>
+    <script type="text/jsx" src="scripts/noteSummary.jsx"></script>
+
+    <!-- Main App -->
     <script type="text/jsx" src="scripts/notary.js"></script>
   </body>
 </html>
