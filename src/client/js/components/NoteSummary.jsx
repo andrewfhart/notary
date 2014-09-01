@@ -19,6 +19,7 @@ define([
             return (
                 <div className="note-summary">
                     <a href={'#' + this.props.key + '/edit'}>{this.props.title}</a>
+                    <a href={'#' + this.props.key} className="tool delete" onClick={this.props.onDelete}>Delete</a>
                 </div>
             );
         }

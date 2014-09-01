@@ -24,7 +24,10 @@ define([
                 <div>
                     <div className="note-list">
                         {this.props.collection.map( function (note) {
-                            return <NoteSummaryCmpt key={note.get('id')} title={note.get('title')}>
+                            return <NoteSummaryCmpt 
+                                key={note.get('id')} 
+                                title={note.get('title')}
+                                onDelete={that.deleteNote}>
                                 {note.get('body')}
                             </NoteSummaryCmpt>
                         })}
@@ -49,10 +52,25 @@ define([
 
         },
 
-        selectNote: function (event) {
-            console.log(event.target);
+        deleteNote: function (event) {
+
+            event.stopPropagation();
+            event.preventDefault();
+
+            var that = this;
+
+            var noteId = $(event.target).attr('href').substr(1);
+
+            if (confirm('This action can not be undone. Continue?')) {
+                console.log(this.props.collection.length);
+                var model = this.props.collection.get(noteId);
+                model.destroy({
+                    success: function (model, response) {
+                        that.props.collection.remove(model);
+                        that.forceUpdate();
+                    }
+                });
+            }
         }
-
-
     });
 });

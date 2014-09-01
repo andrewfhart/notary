@@ -27,6 +27,17 @@ html, body {
     margin-top:20px;
 }
 
+.note-list .tool {
+    font-size:90%;
+    float:right;
+    margin-right:2px;
+}
+
+.note-list .tool.delete {
+    color:red;
+    text-transform: uppercase;
+}
+
 .note-summary {
     background-color:#eee;
     border:solid 1px #ccc;
