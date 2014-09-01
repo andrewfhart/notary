@@ -18,7 +18,7 @@ define([
         render: function () {
             return (
                 <div className="note-summary">
-                    <p>{this.props.title}</p>
+                    <a href={'#' + this.props.key + '/edit'}>{this.props.title}</a>
                 </div>
             );
         }
