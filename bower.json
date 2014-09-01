@@ -25,6 +25,7 @@
     "showdown": "~0.3.1",
     "backbone": "~1.1.2",
     "lodash": "~2.4.1",
-    "backbone.localstorage": "~1.1.13"
+    "backbone.localstorage": "~1.1.13",
+    "requirejs": "~2.1.14"
   }
 }
