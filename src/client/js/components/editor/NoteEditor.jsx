@@ -15,21 +15,25 @@ define([
     return React.createClass({
 
         getInitialState: function () {
-            return {};
+            return {}
         },
 
         handleSave: function () {
             return false;
         },
 
+        updatePreview: function (rawText) {
+            this.refs.preview.generatePreview(rawText);
+        },
+
         render: function () {
             return (
                 <div className="note-editor row">
                     <div className="note-editor-form-container col-md-6">
-                        <EditorFormCmpt/>
+                        <EditorFormCmpt note={this.props.note} onBodyChangeHandler={this.updatePreview} ref="form"/>
                     </div>
                     <div className="note-editor-preview-container col-md-6">
-                        <EditorPreviewCmpt/>
+                        <EditorPreviewCmpt ref="preview" initialText={this.props.note.get('body')}/>
                     </div>
                 </div>
             );

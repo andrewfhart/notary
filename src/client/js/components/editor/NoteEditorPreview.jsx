@@ -13,11 +13,11 @@ define([
     return React.createClass({
 
         getInitialState: function () {
-            return {};
-        },
-
-        handleSave: function () {
-            return false;
+            var initialText = this.props.initialText;
+            return {
+                rawText: initialText,
+                processedText: this.processText(initialText)
+            };
         },
 
         render: function () {
@@ -25,10 +25,23 @@ define([
                 <div>
                     <label>Preview</label>
                     <div className="well note-editor-preview">
-                        <p>Note editor preview pane</p>
+                        <p>{this.state.processedText}</p>
                     </div>
                 </div>
             );
+        },
+
+        processText: function (input) {
+            var output = input;
+            return output;
+        },
+
+        generatePreview: function (text) {
+            this.setState({
+                rawText: text,
+                processedText: this.processText(text)
+            });
         }
+
     });
 });
