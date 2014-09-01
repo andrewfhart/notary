@@ -18,8 +18,15 @@ define([
             return {}
         },
 
-        handleSave: function () {
-            return false;
+        saveNote: function (state) {
+            console.log('About to save note');
+            console.log(state);
+            this.props.note.save(state);
+            Notary.app.router.navigate('/', {trigger: true});
+        },
+
+        cancelEditNote: function (state) {
+            Notary.app.router.navigate('/', {trigger: true});
         },
 
         updatePreview: function (rawText) {
@@ -30,10 +37,17 @@ define([
             return (
                 <div className="note-editor row">
                     <div className="note-editor-form-container col-md-6">
-                        <EditorFormCmpt note={this.props.note} onBodyChangeHandler={this.updatePreview} ref="form"/>
+                        <EditorFormCmpt 
+                            note={this.props.note} 
+                            onBodyChangeHandler={this.updatePreview}
+                            onSave={this.saveNote}
+                            onCancel={this.cancelEditNote}
+                            ref="form" />
                     </div>
                     <div className="note-editor-preview-container col-md-6">
-                        <EditorPreviewCmpt ref="preview" initialText={this.props.note.get('body')}/>
+                        <EditorPreviewCmpt 
+                            ref="preview" 
+                            initialText={this.props.note.get('body')}/>
                     </div>
                 </div>
             );
