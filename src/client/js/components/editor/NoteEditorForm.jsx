@@ -21,7 +21,8 @@ define([
         },
 
         onTitleChange: function () {
-            console.log('TODO: Implement title change handler');
+            // Persist the current value into the component state
+            this.setState({title: this.refs.title.getDOMNode().value});
         },
 
         onBodyChange: function () {
@@ -29,8 +30,18 @@ define([
             var currentText = this.refs.body.getDOMNode().value;
             // Update our own local state
             this.setState({body: currentText});
-            // Pass the change up to the parent component for processing
+            // Pass control up to the parent component for processing
             this.props.onBodyChangeHandler(currentText);
+        },
+
+        onSave: function () {
+            // Pass control up to the parent component
+            this.props.onSave(this.state);
+        },
+
+        onCancel: function () {
+            // Pass control up to the parent component
+            this.props.onCancel(this.state);
         },
 
         render: function () {
@@ -55,7 +66,14 @@ define([
                                   value={this.state.body}
                                   onChange={this.onBodyChange} />
                     </div>
-                    <input className="btn btn-default" type="submit" value="Save" />
+                    <input  className="btn btn-default" 
+                            type="submit" 
+                            value="Save"
+                            onClick={this.onSave} />
+                    <input  className="btn btn-default"
+                            type="button"
+                            value="Cancel"
+                            onClick={this.onCancel} />
                 </form>
             );
 
