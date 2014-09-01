@@ -8,6 +8,7 @@
     "express": "^4.4.5"
   },
   "devDependencies": {
+    "bower": "^1.3.9",
     "gulp": "^3.8.7",
     "gulp-concat": "^2.3.4",
     "gulp-sourcemaps": "^1.1.3",
@@ -18,6 +19,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "install_libs": "bower install",
     "dev": "gulp clean && gulp dev && node ./dev/server/server.js"
   },
   "repository": {
