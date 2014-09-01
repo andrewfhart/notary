@@ -17,6 +17,7 @@ var config = {
             config:['./src/client/js/config.js'],
             css: ['./src/client/css/**/*.css'],
             js: ['./src/client/js/**/*.js', '!./src/client/js/config.js'],
+            jsx: ['./src/client/js/components/**/*.jsx'],
             html: ['./src/client/**/*.html']
         },
         server: {
@@ -29,6 +30,7 @@ var config = {
             config: './dev/client/js',
             css: './dev/client/css',
             js: './dev/client/js',
+            jsx: './dev/client/js/components',
             html: './dev/client'
         },
         server: {
@@ -82,6 +84,12 @@ gulp.task('copy-config', function (cb) {
         .pipe(gulp.dest(config.dest_paths.client.config));
 });
 
+// Copy config files as-is (TODO: pre-compile jsx on build)
+gulp.task('copy-jsx', function (cb) {
+    return gulp.src(config.source_paths.client.jsx)
+        .pipe(gulp.dest(config.dest_paths.client.jsx));
+});
+
 // Copy server-side assets as-is
 gulp.task('copy-server', function (cb) {
     return gulp.src(config.source_paths.server.js)
@@ -93,6 +101,7 @@ gulp.task('copy-server', function (cb) {
 // rerun the dev task when things change
 gulp.task('watch', function (cb) {
     gulp.watch(config.source_paths.client.js,     ['dev'], cb);
+    gulp.watch(config.source_paths.client.jsx,    ['dev'], cb);
     gulp.watch(config.source_paths.client.config, ['dev'], cb);
     gulp.watch(config.source_paths.client.html,   ['dev'], cb);
     gulp.watch(config.source_paths.client.css,    ['dev'], cb);
@@ -105,6 +114,7 @@ gulp.task('dev', [
     'copy-config',
     'copy-html',
     'copy-bower',
+    'copy-jsx',
     'copy-server'
 ]);
 
