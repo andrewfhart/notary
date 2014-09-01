@@ -62,7 +62,6 @@ define([
             var noteId = $(event.target).attr('href').substr(1);
 
             if (confirm('This action can not be undone. Continue?')) {
-                console.log(this.props.collection.length);
                 var model = this.props.collection.get(noteId);
                 model.destroy({
                     success: function (model, response) {

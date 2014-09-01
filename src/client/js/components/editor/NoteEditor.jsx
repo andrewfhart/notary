@@ -19,8 +19,6 @@ define([
         },
 
         saveNote: function (state) {
-            console.log('About to save note');
-            console.log(state);
             this.props.note.save(state);
             Notary.app.router.navigate('/', {trigger: true});
         },

@@ -84,21 +84,15 @@ require([
         },
 
         showAllNotes: function () {
-            console.log('Using showAllNotes route...');
-
             new NoteListView({el: $("#app"), collection: Notary.notes}).render();
         },
 
         viewNote: function (noteId) {
-            console.log('Using viewNote route with note ' + noteId);
-
             var noteModel = Notary.notes.get(noteId);
             new NoteView({el: $('#app'), model:noteModel}).render();
         },
 
         editNote: function (noteId) {
-            console.log('Using editNote route with note ' + noteId);
-
             var noteModel = Notary.notes.get(noteId);
             var noteEditorView = new NoteEditorView({el: $('#app'), model: noteModel}).render();
         }
@@ -109,7 +103,6 @@ require([
     Notary.app.router = new NotaryRouter();
 
     // Start backbone history to enable the router
-    console.log('Starting backbone history...');
     Backbone.history.start();
 
 });
