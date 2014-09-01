@@ -2,12 +2,14 @@ define([
     'underscore',
     'jquery',
     'backbone',
-    'notary'
-], function (_, $, Backbone, Notary) {
+    'notary',
+    'react',
+    'jsx!components/NoteList'
+], function (_, $, Backbone, Notary, React, NoteListCmpt) {
 
     var NoteList = Backbone.View.extend({
 
-        template: "<p>This is a list of all notes</p>",
+        template: '<div id="note-list-container"></div>',
 
         events: {
 
@@ -19,6 +21,7 @@ define([
 
         render: function () {
             this.$el.html(this.template);
+            React.renderComponent(new NoteListCmpt({data: this.collection}), this.$('#note-list-container').get(0));
             return this;
         }
 

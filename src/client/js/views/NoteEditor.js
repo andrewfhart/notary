@@ -2,12 +2,14 @@ define([
     'underscore',
     'jquery',
     'backbone',
-    'notary'
-], function (_, $, Backbone, Notary) {
+    'notary',
+    'react',
+    'jsx!components/editor/NoteEditor'
+], function (_, $, Backbone, Notary, React, NoteEditorCmpt) {
 
-    var NoteEditor = Backbone.View.extend({
+    return Backbone.View.extend({
 
-        template: "<p>This is the note editor</p>",
+        template: '<div id="note-editor-container"></div>',
 
         events: {
 
@@ -18,14 +20,10 @@ define([
         },
 
         render: function () {
-
             this.$el.html(this.template);
+            React.renderComponent(new NoteEditorCmpt(), this.$('#note-editor-container').get(0));
             return this;
-
         }
 
     });
-
-    return NoteEditor;
-
 });
