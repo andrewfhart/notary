@@ -5,8 +5,10 @@ require.config({
         'backbone.localStorage': '../lib/backbone.localstorage/backbone.localStorage-min',
         bootstrap: '../lib/bootstrap/dist/js/bootstrap.min',
         jquery: '../lib/jquery/dist/jquery.min',
-        jsx: '../lib/react/react-with-addons.min',
-        JSXTransformer: '../lib/react/JSXTransformer',
+        jsx: '../lib/jsx-requirejs-plugin/js/jsx',
+        JSXTransformer: '../lib/jsx-requirejs-plugin/js/JSXTransformer-0.11.1',
+        react: '../lib/jsx-requirejs-plugin/js/react-with-addons-0.11.1',
+        text: '../lib/requirejs-text/text',
         underscore: '../lib/lodash/dist/lodash.compat.min'
     },
 
@@ -30,12 +32,16 @@ require.config({
 
         JSXTransformer: {
             exports: "JSXTransformer"
-        }
+        },
 
         jquery: {
             exports: 'jquery'
         },
 
+    },
+
+    jsx: {
+        fileExtension: '.jsx'
     }
 
 });
@@ -59,7 +65,7 @@ require([
 
     // Define a store to hold notes
     Notary.notes = new NoteCollection();
-    Notary.notes.add(new NoteModel({id:1, title:'First Note!', body: '_this_ is my *first* note.'}));
+    Notary.notes.add(new NoteModel({key:1, title:'First Note!', body: '_this_ is my *first* note.'}));
 
     // Define routing for the application
     var NotaryRouter = Backbone.Router.extend({
