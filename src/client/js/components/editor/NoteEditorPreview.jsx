@@ -6,11 +6,15 @@ define([
     'backbone',
     'notary',
     'react',
-], function (_, $, Backbone, Notary, React) {
+    'showdown',
+], function (_, $, Backbone, Notary, React, Showdown) {
 
     'use strict';
 
     return React.createClass({
+
+        /* Will hold the Showdown converter */
+        converter: null,
 
         getInitialState: function () {
             var initialText = this.props.initialText;
@@ -25,15 +29,18 @@ define([
                 <div>
                     <label>Preview</label>
                     <div className="well note-editor-preview">
-                        <p>{this.state.processedText}</p>
+                        <p dangerouslySetInnerHTML={{__html: this.state.processedText}}></p>
                     </div>
                 </div>
             );
         },
 
         processText: function (input) {
-            var output = input;
-            return output;
+            if (!this.converter) {
+                this.converter = new Showdown.converter();
+            }
+
+            return this.converter.makeHtml(input);
         },
 
         generatePreview: function (text) {

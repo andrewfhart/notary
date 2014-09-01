@@ -8,6 +8,7 @@ require.config({
         jsx: '../lib/jsx-requirejs-plugin/js/jsx',
         JSXTransformer: '../lib/jsx-requirejs-plugin/js/JSXTransformer-0.11.1',
         react: '../lib/jsx-requirejs-plugin/js/react-with-addons-0.11.1',
+        showdown: '../lib/showdown/compressed/showdown',
         text: '../lib/requirejs-text/text',
         underscore: '../lib/lodash/dist/lodash.compat.min'
     },
@@ -37,6 +38,10 @@ require.config({
         jquery: {
             exports: 'jquery'
         },
+
+        showdown: {
+            exports: 'Showdown'
+        }
 
     },
 
