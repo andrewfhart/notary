@@ -65,7 +65,7 @@ require([
 
     // Define a store to hold notes
     Notary.notes = new NoteCollection();
-    Notary.notes.add(new NoteModel({key:1, title:'First Note!', body: '_this_ is my *first* note.'}));
+    Notary.notes.add(new NoteModel({id:1, title:'First Note!', body: '_this_ is my *first* note.'}));
 
     // Define routing for the application
     var NotaryRouter = Backbone.Router.extend({
