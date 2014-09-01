@@ -5,6 +5,8 @@ require.config({
         'backbone.localStorage': '../lib/backbone.localstorage/backbone.localStorage-min',
         bootstrap: '../lib/bootstrap/dist/js/bootstrap.min',
         jquery: '../lib/jquery/dist/jquery.min',
+        jsx: '../lib/react/react-with-addons.min',
+        JSXTransformer: '../lib/react/JSXTransformer',
         underscore: '../lib/lodash/dist/lodash.compat.min'
     },
 
@@ -25,6 +27,10 @@ require.config({
             deps: ['jquery'],
             exports: 'bootstrap'
         },
+
+        JSXTransformer: {
+            exports: "JSXTransformer"
+        }
 
         jquery: {
             exports: 'jquery'
