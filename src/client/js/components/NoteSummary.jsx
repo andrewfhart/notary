@@ -1,31 +1,27 @@
 /** @jsx React.DOM */
 
-var Notary = Notary || {};
-
-(function () {
+define([
+    'underscore',
+    'jquery',
+    'backbone',
+    'notary',
+    'react'
+], function (_, $, Backbone, Notary, React){
 
     'use strict';
 
-    Notary.NoteSummary = React.createClass({
-
+    return React.createClass({
         getInitialState: function () {
             return {};
         },
 
-        handleSave: function () {
-            return false;
-        },
-
         render: function () {
-
             return (
-                <div className="noteSummary">
+                <div className="note-summary">
                     <p>{this.props.title}</p>
                 </div>
             );
-
         }
-
     });
 
-})();
+});

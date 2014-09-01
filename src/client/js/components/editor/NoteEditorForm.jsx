@@ -1,12 +1,16 @@
 /** @jsx React.DOM */
 
-var Notary = Notary || {};
-
-(function () {
+define([
+    'underscore',
+    'jquery',
+    'backbone',
+    'notary',
+    'react',
+], function (_, $, Backbone, Notary, React) {
 
     'use strict';
 
-    Notary.NoteEditor = React.createClass({
+    return React.createClass({
 
         getInitialState: function () {
             return {};
@@ -19,7 +23,7 @@ var Notary = Notary || {};
         render: function () {
 
             return (
-                <form className="form editorForm">
+                <form className="form note-editor-form">
                     <div className="form-group">
                         <label for="title">Title</label>
                         <input className="form-control" type="text" placeholder="Note title..." ref="title" />
@@ -34,8 +38,6 @@ var Notary = Notary || {};
 
         }
 
-
     });
 
-
-})();
+});
