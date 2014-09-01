@@ -17,11 +17,14 @@ define([
         converter: null,
 
         getInitialState: function () {
-            var initialText = this.props.initialText;
             return {
-                rawText: initialText,
-                processedText: this.processText(initialText)
+                rawText: '',
+                processedText: ''
             };
+        },
+
+        componentDidMount: function () {
+            this.generatePreview(this.props.initialText);
         },
 
         render: function () {
