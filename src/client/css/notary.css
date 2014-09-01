@@ -22,3 +22,27 @@ html, body {
 .editor-container {
     background-color:#eee;
 }
+
+.note-list {
+    margin-top:20px;
+}
+
+.note-summary {
+    background-color:#eee;
+    border:solid 1px #ccc;
+    border-radius:5px;
+    padding:5px;
+    margin-bottom:10px;
+}
+
+.note-editor {
+    margin-top:1em;
+}
+
+.note-editor-form textarea {
+    min-height:125px;
+}
+
+.note-editor-preview {
+    min-height:200px;
+}
