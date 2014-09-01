@@ -27,6 +27,8 @@
     "lodash": "~2.4.1",
     "backbone.localstorage": "~1.1.13",
     "requirejs": "~2.1.14",
-    "react": "~0.11.1"
+    "react": "~0.11.1",
+    "jsx-requirejs-plugin": "~0.3.0",
+    "requirejs-text": "~2.0.12"
   }
 }
