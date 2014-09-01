@@ -8,7 +8,7 @@ var notes = [{title: 'Test Note', text: 'Oh my _goodness_! It\s __ALIVE__!'}];
 
 /* Static content */
 
-app.use('/', express.static(__dirname));
+app.use('/', express.static(__dirname + '/../client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 

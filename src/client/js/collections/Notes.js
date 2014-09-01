@@ -1,8 +1,11 @@
-/** @jsx React.DOM */
-
-var Notary = Notary || {};
-
-(function () {
+define([
+    'underscore',
+    'jquery',
+    'backbone',
+    'backbone.localStorage',
+    'notary',
+    'models/Note'
+], function (_, $, Backbone, BackboneLocalStorage, Notary, NoteModel) {
 
     'use strict';
 
@@ -12,9 +15,9 @@ var Notary = Notary || {};
 
     var Notes = Backbone.Collection.extend({
 
-        model: Notary.Note,
+        model: NoteModel,
 
-        localStorage: new Backbone.LocalStorage('notary'),
+        localStorage: new BackboneLocalStorage('notary'),
 
         nextId: function () {
 
@@ -27,6 +30,6 @@ var Notary = Notary || {};
 
     });
 
-    Notary.notes = new Notes();
+    return Notes;
 
-})();
+});
