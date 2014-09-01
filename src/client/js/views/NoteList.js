@@ -21,7 +21,7 @@ define([
 
         render: function () {
             this.$el.html(this.template);
-            React.renderComponent(new NoteListCmpt({data: this.collection}), this.$('#note-list-container').get(0));
+            React.renderComponent(new NoteListCmpt({collection: this.collection}), this.$('#note-list-container').get(0));
             return this;
         }
 
