@@ -21,9 +21,12 @@ define([
 
         render: function () {
             this.$el.html(this.template);
-            React.renderComponent(new NoteEditorCmpt(), this.$('#note-editor-container').get(0));
+            React.renderComponent(new NoteEditorCmpt({
+                note: this.model,
+            }), this.$('#note-editor-container').get(0));
             return this;
-        }
+        },
+
 
     });
 });
