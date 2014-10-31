@@ -58,10 +58,9 @@ require([
     'notary',
     'collections/Notes',
     'models/Note',
-    'views/Note',
     'views/NoteList',
     'views/NoteEditor'
-    ], function (_, $, Backbone, Notary, NoteCollection, NoteModel, NoteView, NoteListView, NoteEditorView) {
+    ], function (_, $, Backbone, Notary, NoteCollection, NoteModel, NoteListView, NoteEditorView) {
 
     'use strict';
 
